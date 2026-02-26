@@ -2,55 +2,312 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Support – History Cleaner Pro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & Connect | Harsh Vardhan Solanki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.07);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 40px;
-            max-width: 800px;
-            line-height: 1.6;
-            color: #222;
-        }
-        h1 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        .box {
-            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0f0c29;
+            background-image: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            overflow-x: hidden;
+            position: relative;
+            color: var(--text-primary);
             padding: 20px;
-            border-radius: 6px;
-            margin-top: 20px;
+        }
+
+        /* Animated Glowing Background Blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 10s infinite alternate ease-in-out;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background: #ff416c;
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: #8a2be2;
+            bottom: 10%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .blob-3 {
+            width: 250px;
+            height: 250px;
+            background: #00c6ff;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -50px) scale(1.1); }
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 550px;
+            z-index: 1;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(255, 65, 108, 0.5);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, #fff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* Links Grid */
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .social-btn i {
+            font-size: 20px;
+        }
+
+        /* Button Hover Effects */
+        .social-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-linkedin:hover {
+            background: #0077b5;
+            border-color: #0077b5;
+            box-shadow: 0 8px 20px rgba(0, 119, 181, 0.5);
+        }
+
+        .btn-coffee:hover {
+            background: #FFDD00;
+            color: #000;
+            border-color: #FFDD00;
+            box-shadow: 0 8px 20px rgba(255, 221, 0, 0.5);
+        }
+
+        .btn-instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.5);
+        }
+
+        .btn-youtube:hover {
+            background: #FF0000;
+            border-color: #FF0000;
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .email-link {
+            display: block;
+            color: #00c6ff;
+            text-decoration: none;
+            font-size: 15px;
+            margin: 8px 0;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .email-link:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #00c6ff;
+        }
+
+        /* Footer Text */
+        .footer-message {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #e2e8f0;
+            font-weight: 500;
+            padding: 15px 20px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            border-radius: 12px;
+            border-bottom: 2px solid #ff416c;
+        }
+
+        .heart {
+            color: #ff416c;
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+            .glass-card {
+                padding: 30px 20px;
+            }
+            .name {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 <body>
 
-<h1>History Cleaner Pro – Support</h1>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
-<p>
-If you are experiencing issues, found a bug, or have a feature request,
-please contact the developer using the information below.
-</p>
+    <div class="glass-card">
+        
+        <div class="profile-pic">
+            HVS
+        </div>
+        <h1 class="name">Harsh Vardhan Solanki</h1>
+        <p class="tagline">Developer & Creator</p>
 
-<div class="box">
-    <strong>Email Support:</strong><br>
-    harshpratapsinghhh@gmail.com
-</div>
+        <div class="links-grid">
+            <a href="https://linkedin.com/in/harshvsolanki" target="_blank" class="social-btn btn-linkedin">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+            <a href="https://buymeacoffee.com/harshvardhansolanki" target="_blank" class="social-btn btn-coffee">
+                <i class="fa-solid fa-mug-hot"></i> Buy Me A Coffee
+            </a>
+            <a href="https://www.instagram.com/harsh.vardhan.solanki/" target="_blank" class="social-btn btn-instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.youtube.com/@Harsh.Vardhan.Solanki" target="_blank" class="social-btn btn-youtube">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+        </div>
 
-<p>
-When reporting an issue, please include:
-</p>
+        <div class="contact-section">
+            <div class="contact-title">Get In Touch</div>
+            <a href="mailto:harshpratapsinghhh@gmail.com" class="email-link">
+                <i class="fas fa-envelope"></i> harshpratapsinghhh@gmail.com
+            </a>
+            <a href="mailto:hvs@harshvardhansolanki.com" class="email-link">
+                <i class="fas fa-paper-plane"></i> hvs@harshvardhansolanki.com
+            </a>
+        </div>
 
-<ul>
-    <li>Your Chrome version</li>
-    <li>Operating system (Windows / macOS / Linux)</li>
-    <li>A short description of the problem</li>
-</ul>
+        <div class="footer-message">
+            I made with love to enhance my skills and help others with my projects <span class="heart">❤️</span>
+        </div>
 
-<p>
-Response time: 24–72 hours.
-</p>
+    </div>
 
 </body>
 </html>
