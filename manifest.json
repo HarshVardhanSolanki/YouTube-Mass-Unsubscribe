@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "HVS YouTube Mass Unsub v1.0",
+  "version": "1.0",
+  "description": "HVS Fast Mass Unsubscribe for YouTube - Unsubscribe from all channels with one click! Save time and declutter your feed easily.",
+  "author": "HVS",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": ["scripting", "activeTab", "tabs"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Mass Unsub"
+  }
+}
